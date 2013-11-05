@@ -11,12 +11,12 @@ class Matriz
     
     attr_reader :matrix, :fila, :columna
     
-    def mostrar
-        x = y = 0
-        puts "matrix: "
-        while x < fila
-            while y < columna
-                print("#{matrix[x][y]}")
+    def mostrar #Funcion mostrar matriz
+        x = y = 0 # inicializamos las variables
+        puts "matrix: " 
+        while x < fila # primer bucle
+            while y < columna # segundo bucle
+                print("#{matrix[x][y]}") #imprimimos en la posicion en la que se encuentre
                 y += 1
             end
             puts
@@ -24,6 +24,7 @@ class Matriz
             y = 0
         end
     end
+    
 end 
 
 

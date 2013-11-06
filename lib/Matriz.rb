@@ -31,7 +31,7 @@ class Matriz
     x = y = 0 # inicializamos las variables
     while x < fila # primer bucle
       while y < columna # segundo bucle
-	cadena += " #{matrix[x][y]}"
+	cadena += "#{matrix[x][y]} "
         y += 1
       end
       cadena +="\n"
@@ -62,24 +62,25 @@ class Matriz
   end
   
   def *(o)
-    raise unless (o.is_a? Matriz) and (fila == o.fila) and (columna == o.columna)
-      mat = []
-      x = y = 0
-      while x < fila
-        while y < columna
-          if y == 0
-            mat << [matrix[x][y] * o.matrix[x][y]]
-          else
-            mat[x] << (matrix[x][y] * o.matrix[x][y])
-          end
-          y += 1
-        end
-        x += 1
-        y = 0
+    raise unless (o.is_a? Matriz) and (fila == o.columna) 
+    mat = Array.new(fila) { Array.new(o.columna) }
+
+      #Multiplicacion de matrices
+
+      for i in 0...o.columna do
+	for j in 0...fila do
+	  mat[i][j]=0;
+	  for k in 0...fila do
+	    mat[i][j] += matrix[i][k] * o.matrix[k][j]
+	  end
+	end
       end
+      
       Matriz.new(mat)
   end
 end 
 
-#m=Matriz.new([[1,2,3],[4,5,6]])
-#puts m.to_s;
+#m=Matriz.new([[1,1],[1,1]])
+#m2=Matriz.new([[1,2],[4,5]])
+
+#puts (m*m2).to_s

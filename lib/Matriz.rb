@@ -28,7 +28,7 @@ class Matriz
   
   def to_s #Funcion mostrar matriz
     cadena = ""
-    x = y = 0 # inicializamos las variables
+    x = y = 0 
     while x < fila # primer bucle
       while y < columna # segundo bucle
 	cadena += "#{matrix[x][y]} "
@@ -64,7 +64,6 @@ class Matriz
   def *(o)
     raise unless (o.is_a? Matriz) and (columna == o.fila) 
     mat = Array.new(fila) { Array.new(o.columna) }
-      #Multiplicacion de matrices
       for i in 0...@fila do
 	for j in 0...o.columna do
 	  mat[i][j]=0;
@@ -77,7 +76,3 @@ class Matriz
   end
 end 
 
-#m=Matriz.new([[1,1],[1,1]])
-#m2=Matriz.new([[1,2,3],[3,4,5]])
-
-#puts (m*m2).to_s

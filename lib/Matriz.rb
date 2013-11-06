@@ -62,25 +62,22 @@ class Matriz
   end
   
   def *(o)
-    raise unless (o.is_a? Matriz) and (fila == o.columna) 
+    raise unless (o.is_a? Matriz) and (columna == o.fila) 
     mat = Array.new(fila) { Array.new(o.columna) }
-
       #Multiplicacion de matrices
-
-      for i in 0...o.columna do
-	for j in 0...fila do
+      for i in 0...@fila do
+	for j in 0...o.columna do
 	  mat[i][j]=0;
-	  for k in 0...fila do
+	  for k in 0...o.fila do
 	    mat[i][j] += matrix[i][k] * o.matrix[k][j]
 	  end
 	end
       end
-      
       Matriz.new(mat)
   end
 end 
 
 #m=Matriz.new([[1,1],[1,1]])
-#m2=Matriz.new([[1,2],[4,5]])
+#m2=Matriz.new([[1,2,3],[3,4,5]])
 
 #puts (m*m2).to_s

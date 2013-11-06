@@ -3,30 +3,47 @@
 require 'matrix'
 
 class Matriz
-	def initialize (matrix, tamanio = matrix[0].size)
-		@matrix = matrix
-        @fila = matrix.size
-        @columna = tam
-	end
+  
+  def initialize (matrix, tam = matrix[0].size)
+    @matrix = matrix
+    @fila = matrix.size
+    @columna = tam
+  end
+  
+  attr_reader :matrix, :fila, :columna
     
-    attr_reader :matrix, :fila, :columna
-    
-    def mostrar #Funcion mostrar matriz
-        x = y = 0 # inicializamos las variables
-        puts "matrix: " 
-        while x < fila # primer bucle
-            while y < columna # segundo bucle
-                print("#{matrix[x][y]}") #imprimimos en la posicion en la que se encuentre
-                y += 1
-            end
-            puts
-            x += 1
-            y = 0
-        end
+  def mostrar #Funcion mostrar matriz
+    x = y = 0 # inicializamos las variables
+    puts "matriz: " 
+    while x < fila # primer bucle
+      while y < columna # segundo bucle
+	print("#{matrix[x][y]}") #imprimimos en la posicion en la que se encuentre
+        y += 1
+      end
+      puts
+      x += 1
+      y = 0
     end
+  end
+  
+  def to_s #Funcion mostrar matriz
+    cadena = ""
+    x = y = 0 # inicializamos las variables
+    while x < fila # primer bucle
+      while y < columna # segundo bucle
+	cadena += " #{matrix[x][y]}"
+        y += 1
+      end
+      cadena +="\n"
+      x += 1
+      y = 0
+    end
+    cadena
+  end
+  
     
-    def +(o)
-    raise unless (o.is_a? Matrix) and (fila == o.fila) and (columna == o.columna)
+  def +(o)
+    raise unless (o.is_a? Matriz) and (fila == o.fila) and (columna == o.columna)
       mat = []
       x = y = 0
       while x < fila
@@ -41,11 +58,11 @@ class Matriz
         x += 1
         y = 0
       end
-      Matrix.new(mat)
+      Matriz.new(mat)
   end
   
-    def *(o)
-    raise unless (o.is_a? Matrix) and (fila == o.fila) and (columna == o.columna)
+  def *(o)
+    raise unless (o.is_a? Matriz) and (fila == o.fila) and (columna == o.columna)
       mat = []
       x = y = 0
       while x < fila
@@ -60,9 +77,9 @@ class Matriz
         x += 1
         y = 0
       end
-      Matrix.new(mat)
+      Matriz.new(mat)
   end
-    
 end 
 
-
+#m=Matriz.new([[1,2,3],[4,5,6]])
+#puts m.to_s;

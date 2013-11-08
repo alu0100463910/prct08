@@ -1,7 +1,6 @@
 
 class Fraccion  #Clase Fraccion
   include Comparable
-  include Fixnum
   attr_accessor :numerador, :denominador
   
   def initialize(num, den)

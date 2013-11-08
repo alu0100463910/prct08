@@ -66,7 +66,7 @@ class Matriz
     mat = Array.new(fila) { Array.new(o.columna) }
       for i in 0...@fila do
 	for j in 0...o.columna do
-	  mat[i][j]=0;
+	  mat[i][j]=Fraccion.new(0,1);
 	  for k in 0...o.fila do
 	    mat[i][j] += matrix[i][k] * o.matrix[k][j]
 	  end

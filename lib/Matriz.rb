@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-
+require 'fraccion'
 require 'matrix'
 
 class Matriz

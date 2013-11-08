@@ -7,6 +7,10 @@ describe Matriz do
     @m1 = Matriz.new([[1,2,3],[4,5,6]])
     @m2 = Matriz.new([[3,3,3],[3,3,3],[3,3,3]])
     @m3 = Matriz.new([[3,3,3],[3,3,3]])
+    @f1 = Fraccion.new(2,4)
+    @f2 = Fraccion.new(1,3)
+    @f3 = Fraccion.new(2,8)
+    @matriz =Matriz.new([[@f1,@f2,@f3],[@f1,@f2,2]])
   end
   
   describe "Existe Metodo to string?" do

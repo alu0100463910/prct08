@@ -22,7 +22,7 @@ describe Matriz do
   
   it "Se debe poder sumar dos matrices de enteros" do
     (@m1+@m3).matrix.inspect.should == "[[4, 5, 6], [7, 8, 9]]"
-    (@matriz1+@matriz2).matrix.inspect.should == "[[2/1,3/1],[4/1,2/1]]"
+    (@matriz1+@matriz2).matrix.inspect.should == "[[2,3],[4,2]]"
   end
   
   it "Se debe poder multiplicar una matriz de Enteros" do

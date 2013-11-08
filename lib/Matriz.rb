@@ -68,7 +68,7 @@ class Matriz
 	for j in 0...o.columna do
 	  mat[i][j]=0;
 	  for k in 0...o.fila do
-	    mat[i][j] << matrix[i][k] * o.matrix[k][j]
+	    mat[i][j] += matrix[i][k] * o.matrix[k][j]
 	  end
 	end
       end

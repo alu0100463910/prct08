@@ -74,7 +74,7 @@ class Fraccion  #Clase Fraccion
   end
   
   def *(o)
-   if o.is_a(Fixnum)
+   if o.is_a?(Fixnum)
      o=Fraccion.new(o,1)
    end
     Fraccion.new(@numerador*o.numerador,@denominador*o.denominador)
